@@ -1,115 +1,55 @@
-"""
-A bunch of useful functions related to primality and prime generation.
+#include <Python.h>
 
-Include all functions by adding to your code:
-import prime
+/*
+Basic implementation of a PyObject in C
+Placeholder for an n-bit integer sieve type in Python3.x
+S Vishnuvardhan
+*/
 
-"""
+typedef struct {
+	PyObject_HEAD
+	/* Type-specific fields go here. */
+} PrimeSieveObject;
 
-prime_list = [2, 3, 5, 7, 11, 13, 17, 19, 23]   
-prime_dict = dict.fromkeys(prime_list, 1)
-lastn      = prime_list[-1]
+static PyTypeObject PrimeSieveObject = {
+	PyObject_HEAD_INIT(NULL)
+	0,				/* ob_size        */
+	"primetype.Sieve",		/* tp_name        */
+	sizeof(PrimeSieveObject),	/* tp_basicsize   */
+	0,				/* tp_itemsize    */
+	0,				/* tp_dealloc     */
+	0,				/* tp_print       */
+	0,				/* tp_getattr     */
+	0,				/* tp_setattr     */
+	0,				/* tp_compare     */
+	0,				/* tp_repr        */
+	0,				/* tp_as_number   */
+	0,				/* tp_as_sequence */
+	0,				/* tp_as_mapping  */
+	0,				/* tp_hash        */
+	0,				/* tp_call        */
+	0,				/* tp_str         */
+	0,				/* tp_getattro    */
+	0,				/* tp_setattro    */
+	0,				/* tp_as_buffer   */
+	Py_TPFLAGS_DEFAULT,		/* tp_flags       */
+	">%20DOC%20<",			/* tp_doc         */
+};
 
-def _isprime(n):
-    ''' Raw check to see if n is prime. Assumes that prime_list is already populated '''
-    isprime = n >= 2 and 1 or 0
-    for prime in prime_list:                    
-        if prime * prime > n: break             
-        if not n % prime:
-            isprime = 0
-            break
-    if isprime: prime_dict[n] = 1               
-    return isprime
+PyMODINIT_FUNC
+initprimetype(void) 
+{
+	PyObject* m;
 
-def _refresh(x):
-     ''' Refreshes primes upto x '''
-     global lastn
-     while lastn <= x:                           
-         lastn = lastn + 1                       
-         if _isprime(lastn):
-             prime_list.append(lastn)            
+	PrimeSieveObject.tp_new = PyType_GenericNew;
+	if (PyType_Ready(&PrimeSieveObject) < 0)
+		return;
 
-def prime(x):
-    ''' Returns the xth prime '''
-    global lastn
-    while len(prime_list) <= x:                 
-        lastn = lastn + 1                       
-        if _isprime(lastn):
-            prime_list.append(lastn)                 
-    return prime_list[x]
+	m = Py_InitModule3("primetype", NULL,
+			   "Extension module that creates an prime sieve type.");
+	if (m == NULL)
+		return;
 
-def isprime(x):
-     ''' Returns 1 if x is prime, 0 if not. Uses a pre-computed dictionary '''
-     _refresh(x)                                 
-     return prime_dict.get(x, 0)                 
-
-def factors(n):
-     ''' Returns a prime factors of n as a list '''
-     _refresh(n)
-     x, xp, f = 0, prime_list[0], []
-     while xp <= n:
-         if not n % xp:
-             f.append(xp)
-             n = n / xp
-         else:
-             x = x + 1
-             xp = prime_list[x]
-     return f
-
-def all_factors(n):
-    ''' Returns all factors of n, including 1 and n '''
-    f = factors(n)
-    elts = sorted(set(f))
-    numelts = len(elts)
-    def gen_inner(i):
-        if i >= numelts:
-            yield 1
-            return
-        thiselt = elts[i]
-        thismax = f.count(thiselt)
-        powers = [1]
-        for j in xrange(thismax):
-            powers.append(powers[-1] * thiselt)
-        for d in gen_inner(i+1):
-            for prime_power in powers:
-                yield prime_power * d
-    for d in gen_inner(0):
-        yield d
-
-def num_factors(n):
-    ''' Returns the number of factors of n, including 1 and n '''
-    div = 1
-    x = 0
-    while n > 1:
-        c = 1
-        while not n % prime(x):
-            c = c + 1
-            n = n / prime(x)
-        x = x + 1
-        div = div * c
-    return div
-
-"""
-A python implementation of the Sieve of Eratosthenes.
-
-Include the function by adding:
-import sieve
-
-"""
-
-def prime_sieve(limit):
-    a = [True] * limit                         
-    a[0] = a[1] = False
-
-    for (i, isprime) in enumerate(a):
-        if isprime:
-            yield i
-            for n in xrange(i*i, limit, i):     
-                a[n] = False
-
-    return a
-
-if __name__ == '__main__':
-    sieved = prime_sieve(1000000)
-    print("Sieve successful.")
-
+	Py_INCREF(&PrimeSieveObject);
+	PyModule_AddObject(m, "Prime", (PyObject *)&PrimeSieveObject);
+}
