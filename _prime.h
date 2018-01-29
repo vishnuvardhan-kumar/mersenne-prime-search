@@ -3,7 +3,13 @@
 /*
 Basic implementation of a PyObject in C
 Placeholder for an n-bit integer sieve type in Python3.x
-S Vishnuvardhan
+
+struct PrimeSieveObject {
+	HEAD_INIT *PrimeSieve;
+	int ExitCode;
+}
+
+Vishnuvardhan K
 */
 
 typedef struct {
