@@ -144,7 +144,7 @@ def prime_sieve(limit):
     return a
 
 if __name__ == '__main__':
-    # Just a placeholder test
     sieved = prime_sieve(1000000)
-    print("Sieve successful.")
+    assert isinstance(sieved, list)
+    print("Sieve successfully built and populated.")
 

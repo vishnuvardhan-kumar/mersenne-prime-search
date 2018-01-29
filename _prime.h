@@ -9,7 +9,17 @@ struct PrimeSieveObject {
 	int ExitCode;
 }
 
-Vishnuvardhan K
+
+Idea for implementation of arbitrary bit integers in C
+
+struct NbitInteger {
+	unsigned long long pointDisarray;
+	unsigned long long *Storage;
+	// Pointer to (n) cascading unsigned ints
+}
+
+Vishnuvardhan K. 29/1/18
+
 */
 
 typedef struct {
