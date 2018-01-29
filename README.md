@@ -23,3 +23,9 @@ From Wikipedia, the free encyclopedia
 > [Miller–Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
 
 > [Lucas–Lehmer primality test](https://en.wikipedia.org/wiki/Lucas%E2%80%93Lehmer_primality_test)
+
+<h4> Project Roadmap </h4>
+
++ Move from Python3 to C/C++ (using a library such as GMP)
++ Parellize operations on threads/microthreads
++ Overcome CPU usage restrictions on generic compilers
