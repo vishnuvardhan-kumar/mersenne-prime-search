@@ -1,1 +1,1 @@
-prime, random, math, operator, time
+git+git://github.com/vishnuvardhan-kumar/prime.git
