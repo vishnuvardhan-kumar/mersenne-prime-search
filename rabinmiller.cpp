@@ -10,6 +10,9 @@ bool check(big,big,big,big);
 int main()
 {
 	bool Test = is_prime_prob(1001,10);
+	bool Test = is_prime_prob(2001,10);
+	bool Test = is_prime_prob(3001,10);
+	bool Test = is_prime_prob(4001,10);
 }
 
 
