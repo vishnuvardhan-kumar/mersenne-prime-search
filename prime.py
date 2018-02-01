@@ -123,7 +123,6 @@ A python implementation of the Sieve of Eratosthenes.
 """
 
 def prime_sieve(limit):
-    # Removed workaround
     a = [True for _ in range(limit)]                         
     a[0] = a[1] = False
 
