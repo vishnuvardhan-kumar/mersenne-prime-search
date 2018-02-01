@@ -1,9 +1,5 @@
 """
 A bunch of useful functions related to primality and prime generation.
-
-Include all functions by adding to your code:
-import prime
-
 """
 
 prime_list = [2, 3, 5, 7, 11, 13, 17, 19, 23]   
