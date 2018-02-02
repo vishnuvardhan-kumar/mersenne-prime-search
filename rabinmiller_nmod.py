@@ -1,3 +1,10 @@
+"""
+Python implementation from Rossettacode.org
+
+https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python
+
+"""
+
 import random
  
 _mrpt_num_trials = 5 # number of bases to test
@@ -70,4 +77,9 @@ def is_probable_prime(n):
                 return False
         return True # n is definitely composite
  
-    
+    for i in range(_mrpt_num_trials):
+        a = random.randrange(2, n)
+        if try_composite(a):
+            return False
+ 
+    return True # no base tested showed n as composite
