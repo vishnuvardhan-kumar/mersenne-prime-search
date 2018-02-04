@@ -1,9 +1,5 @@
 """
 A bunch of useful functions related to primality and prime generation.
-
-Include all functions by adding to your code:
-import prime
-
 """
 
 from random import randrange
@@ -129,12 +125,7 @@ A python implementation of the Sieve of Eratosthenes.
 """
 
 def prime_sieve(limit):
-    
-    # The following line fails with arbitrarily large integers
-    # Workaround is
-    # a = [True for _ in range(limit)]
-  
-    a = [True] * limit                         
+    a = [True for _ in range(limit)]                         
     a[0] = a[1] = False
 
     for (i, isprime) in enumerate(a):

@@ -1,17 +1,36 @@
 #include <iostream>
 #include <algorithm>
 #include <math>
+#include <random>
 
 #define big unsigned long long
 
 bool is_prime_prob(big, int);
 bool check(big,big,big,big);
+bool unittest(int);
 
 int main()
 {
-	bool Test = is_prime_prob(1001,10);
+	bool result = unittest(100);
+	if(result)
+		cout << "Tests sucessful.";
+	else
+		cout << "Tests failed";
 }
 
+bool unittest(int n)
+{
+	std::random_device rd;     
+	std::mt19937 rng(rd());    
+	std::uniform_int_distribution<int> uni(min,max); 
+
+	for(int k=0;k<n;k++)
+	{
+		auto random_integer = uni(rng);
+		bool result = check(random_integer);
+	}
+	return result;
+}
 
 bool check(big a, big s, big d, big n)
 {
