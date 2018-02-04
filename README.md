@@ -11,7 +11,7 @@ My attempt to generate and verify arbitrarily large Mersenne primes.
 
 From Wikipedia, the free encyclopedia
 
-> Largest known term 	277,232,917 − 1 (December 2017)
+> Largest known term 	2^77,232,917 − 1 (December 2017)
 > 
 > OEIS index 	A000668
 
