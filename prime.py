@@ -6,6 +6,8 @@ import prime
 
 """
 
+from random import randrange
+
 prime_list = [2, 3, 5, 7, 11, 13, 17, 19, 23]   
 prime_dict = dict.fromkeys(prime_list, 1)
 lastn      = prime_list[-1]
