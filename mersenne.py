@@ -1,17 +1,20 @@
-from random import randrange
 from prime import is_prime_prob
 import time
 
 base = 2
-exponent = 2000
+exponent = 21700
 starttime = time.time()
 count = 0
 
 try:
     while True:
-        if is_prime(base**exponent-1):
+        cur = time.time()
+        print(f"Checking {base}^{exponent}... ", end='')
+        if is_prime_prob(base**exponent-1):
             print(f"M({exponent}) is probably prime")
         exponent+=1
         count+=1
+        end = time.time() - cur
+        print(f"{end:.2f} seconds")
 except KeyboardInterrupt:
     print("Found {} probable primes in {} seconds".format(count, time.time()-starttime))    
