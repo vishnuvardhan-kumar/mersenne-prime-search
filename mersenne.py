@@ -1,8 +1,8 @@
-from prime import is_prime_prob
+from prime import is_prime_prob, isprime
 import time
 
 base = 2
-exponent = 21700
+exponent = 21701
 starttime = time.time()
 count = 0
 
@@ -10,9 +10,14 @@ try:
     while True:
         cur = time.time()
         print(f"Checking {base}^{exponent}... ", end='')
+        if not isprime(exponent):
+            exponent+=2
+            print()
+            continue
         if is_prime_prob(base**exponent-1):
             print(f"M({exponent}) is probably prime")
-        exponent+=1
+            break
+        exponent+=2
         count+=1
         end = time.time() - cur
         print(f"{end:.2f} seconds")
