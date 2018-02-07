@@ -27,4 +27,4 @@ From Wikipedia, the free encyclopedia
 
 + Move from Python3 to C/C++ (using a library such as GMP)
 + Parellize operations on threads/microthreads
-+ Overcome CPU usage restrictions on generic compilers
++ Implement prime exponent paradigm
