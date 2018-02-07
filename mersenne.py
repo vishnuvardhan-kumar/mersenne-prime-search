@@ -10,10 +10,6 @@ try:
     while True:
         cur = time.time()
         print(f"Checking {base}^{exponent}... ", end='')
-        if not isprime(exponent):
-            exponent+=2
-            print()
-            continue
         if is_prime_prob(base**exponent-1):
             print(f"M({exponent}) is probably prime")
             break
