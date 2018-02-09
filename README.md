@@ -23,8 +23,17 @@ From Wikipedia, the free encyclopedia
 
 > [Lucas–Lehmer primality test](https://en.wikipedia.org/wiki/Lucas%E2%80%93Lehmer_primality_test)
 
+<h4> How to Run </h4>
+
++ `git clone https://github.com/vishnuvardhan-kumar/mersenne-prime-search.git`
+
++  `cd mersenne-prime-search`
+ 
++  `python mersenne.py`
+
 <h4> Project Roadmap </h4>
 
 + Move from Python3 to C/C++ (using a library such as GMP)
 + Parellize operations on threads/microthreads
 + Implement prime exponent paradigm
+
