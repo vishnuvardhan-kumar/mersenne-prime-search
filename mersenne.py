@@ -15,6 +15,7 @@ if __name__ == "__main__":
         assert isinstance(cache, list)
         assert isinstance(base, int)
         assert isinstance(exponent, int)
+        assert isinstance(starttime, float)
 
         while True:
             cur = time.time()
