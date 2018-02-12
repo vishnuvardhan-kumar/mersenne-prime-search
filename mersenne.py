@@ -19,4 +19,5 @@ try:
         end = time.time() - cur
         print(f"{end:.2f} seconds")
 except KeyboardInterrupt:
+    cache.append(count)
     print("Found {} probable primes in {} seconds".format(count, time.time()-starttime))    
