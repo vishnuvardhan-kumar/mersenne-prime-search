@@ -8,6 +8,13 @@ count = 0
 cache = []
 
 try:
+
+    # Base cases
+    assert isinstance(count, int)
+    assert isinstance(cache, list)
+    assert isinstance(base, int)
+    assert isinstance(exponent, int)
+
     while True:
         cur = time.time()
         print(f"Checking {base}^{exponent}... ", end='')
@@ -20,8 +27,4 @@ try:
         print(f"{end:.2f} seconds")
 except KeyboardInterrupt:
     cache.append(count)
-    assert isinstance(count, int)
-    assert isinstance(cache, list)
-    assert isinstance(base, int)
-    assert isinstance(exponent, int)
     print("Found {} probable primes in {} seconds".format(count, time.time()-starttime))    
