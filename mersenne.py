@@ -5,6 +5,7 @@ base = 2
 exponent = 21701
 starttime = time.time()
 count = 0
+cache = []
 
 try:
     while True:
