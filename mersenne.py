@@ -21,4 +21,6 @@ try:
 except KeyboardInterrupt:
     cache.append(count)
     assert isinstance(count, int)
+    assert isinstance(cache, list)
+    assert isinstance(base, int)
     print("Found {} probable primes in {} seconds".format(count, time.time()-starttime))    
