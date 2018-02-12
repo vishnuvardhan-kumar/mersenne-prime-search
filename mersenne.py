@@ -23,4 +23,5 @@ except KeyboardInterrupt:
     assert isinstance(count, int)
     assert isinstance(cache, list)
     assert isinstance(base, int)
+    assert isinstance(exponent, int)
     print("Found {} probable primes in {} seconds".format(count, time.time()-starttime))    
