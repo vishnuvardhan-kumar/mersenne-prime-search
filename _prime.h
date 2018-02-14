@@ -6,7 +6,6 @@ Placeholder for an n-bit integer sieve type in Python3.x
 
 struct PrimeSieveObject {
 	HEAD_INIT *PrimeSieve;
-	PyObject_HEAD *head;
 	int ExitCode;
 }
 
