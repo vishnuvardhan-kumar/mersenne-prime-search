@@ -1,5 +1,7 @@
 """
 A bunch of useful functions related to primality and prime generation.
+master branch at :: github.com/vishnuvardhan-kumar/prime
+
 """
 
 from random import randrange
