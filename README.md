@@ -4,7 +4,7 @@ My attempt to generate and verify arbitrarily large Mersenne primes.
 
 <h4> Current largest: </h4>
 
-> M(110503) == 2^110503 - 1 with 33265 digits (Pure Python3)
+> M(216091) == 2^216091 - 1 with 65050 digits (Pure Python3)
 
 <h4> Mersenne primes: </h4>
 
